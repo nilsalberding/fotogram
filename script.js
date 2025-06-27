@@ -1,94 +1,151 @@
 const imagesBread = [
     {
-        name: "Körnerbrot",
+        title: "Körnerbrot",
         path: "./img/bread1.jpg",
-        alt: "Körnerbrot, von oben Fotografiert, in Scheiben geschnitten."
+        alt: "Körnerbrot, von oben Fotografiert, in Scheiben geschnitten.",
+        id: 1
     },
-        {
-        name: "Croissant",
+    {
+        title: "Croissant",
         path: "./img/bread2.jpg",
-        alt: "Croissant, von oben fotografiert."
+        alt: "Croissant, von oben fotografiert.",
+        id: 2
+
     },
-        {
-        name: "Baguette",
+    {
+        title: "Baguette",
         path: "./img/bread3.jpg",
-        alt: "Mehrere Baguettes, von der Seite fotografiert."
+        alt: "Mehrere Baguettes, von der Seite fotografiert.",
+        id: 3
     },
-        {
-        name: "Schrippen",
+    {
+        title: "Schrippen",
         path: "./img/bread4.jpg",
-        alt: "Mehrere helle Sonntagsbrötchen."
+        alt: "Mehrere helle Sonntagsbrötchen.",
+        id: 4
     },
-        {
-        name: "Einfaches Weizenbrot",
+    {
+        title: "Einfaches Weizenbrot",
         path: "./img/bread5.jpg",
-        alt: "Ein Weizenbrot, in der Mitte aufgeschnitten."
+        alt: "Ein Weizenbrot, in der Mitte aufgeschnitten.",
+        id: 5
     },
-        {
-        name: "Helle Steinofenbrötchen",
+    {
+        title: "Helle Steinofenbrötchen",
         path: "./img/bread6.jpg",
-        alt: "Helle Steinofenbrötchen."
+        alt: "Helle Steinofenbrötchen.",
+        id: 6
     },
-        {
-        name: "Hefezopf mit Aufstrich",
+    {
+        title: "Hefezopf mit Aufstrich",
         path: "./img/bread7.jpg",
-        alt: "Ein Hefezopf, aufgeschnitten, mit Marmelade und Beeren garniert"
+        alt: "Ein Hefezopf, aufgeschnitten, mit Marmelade und Beeren garniert",
+        id: 7
     },
-        {
-        name: "Saftiges Sauerteigbrot",
+    {
+        title: "Saftiges Sauerteigbrot",
         path: "./img/bread8.jpg",
-        alt: "Ein herrliches Sauerteigbrot, unglaublich schmackhaft, geschnitten und von vorne fotografiert."
+        alt: "Ein herrliches Sauerteigbrot, unglaublich schmackhaft, geschnitten und von vorne fotografiert.",
+        id: 8
     },
-        {
-        name: "Brotmischung",
+    {
+        title: "Brotmischung",
         path: "./img/bread9.jpg",
-        alt: "Verschiedene Brotkreationen, von oben fotografiert."
+        alt: "Verschiedene Brotkreationen, von oben fotografiert.",
+        id: 9
     },
-        {
-        name: "Landbrote",
+    {
+        title: "Landbrote",
         path: "./img/bread10.jpg",
-        alt: "Viele Landbrote nebeneinander angeordnet, von der Seite fotografiert."
+        alt: "Viele Landbrote nebeneinander angeordnet, von der Seite fotografiert.",
+        id: 10
     },
-        {
-        name: "Körnerbaguette",
+    {
+        title: "Körnerbaguette",
         path: "./img/bread11.jpg",
-        alt: "Mehrere Körnerbaguettes im Brotkorb, von oben fotografiert."
+        alt: "Mehrere Körnerbaguettes im Brotkorb, von oben fotografiert.",
+        id: 11
     },
-        {
-        name: "Hefezopf ganz",
+    {
+        title: "Hefezopf ganz",
         path: "./img/bread12.jpg",
-        alt: "Ein ganzer Hefezopf von oben fotografiert. Daneben sind ein Messer und ein Teelöffel angeordnet."
+        alt: "Ein ganzer Hefezopf von oben fotografiert. Daneben sind ein Messer und ein Teelöffel angeordnet.",
+        id: 12
     },
-        {
-        name: "Sauerteig",
+    {
+        title: "Sauerteig",
         path: "./img/bread13.jpg",
-        alt: "Sauerteig im Glas, von oben fotografiert"
+        alt: "Sauerteig im Glas, von oben fotografiert",
+        id: 13
     },
-        {
-        name: "Einfaches Weizenbrot",
+    {
+        title: "Einfaches Weizenbrot",
         path: "./img/bread14.jpg",
-        alt: "Einfaches Weizenbrot auf einem Backofenrost"
+        alt: "Einfaches Weizenbrot auf einem Backofenrost",
+        id: 14
     },
-        {
-        name: "Helles Brötchen",
+    {
+        title: "Helles Brötchen",
         path: "./img/bread15.jpg",
-        alt: "Ein helles Brötchen mit Sesam garniert."
+        alt: "Ein helles Brötchen mit Sesam garniert.",
+        id: 15
     }
 ]
 
 const imagesContainer = document.getElementById("container-images")
 
-function renderImages(){
+function renderImages() {
 
     for (i = 0; i < imagesBread.length; i++) {
 
-        // const imageName = imagesBread[i].name;
+        const imageTitle = imagesBread[i].title;
         const imagePath = imagesBread[i].path;
         const imageAltText = imagesBread[i].alt;
+        const imageID = imagesBread[i].id
 
-        imagesContainer.innerHTML += addPictures(imagePath, imageAltText);
+        imagesContainer.innerHTML += addPictures(imagePath, imageAltText, imageTitle, imageID);
 
     }
 };
 
 renderImages();
+
+function activateDialog(imgSrc, imgTitle, imgID) {
+
+    const dialogRef = document.getElementById('dialog');
+
+    dialogRef.classList.toggle('d-none');
+
+    dialogRef.innerHTML = addDialog(imgSrc, imgTitle, imgID);
+}
+
+function closeDialog() {
+
+    const dialogRef = document.getElementById('dialog');
+    dialogRef.classList.toggle('d-none');
+}
+
+// function imgForward() {
+
+//     const dialogWindowRef = document.getElementById('dialog-window');
+
+
+
+//     for (i = 0; i < imagesBread.length; i++) {
+
+//         const currentID = document.getElementById("image-id").innerHTML
+
+//         if (i == currentID - 1) {
+
+//             let imageTitle = imagesBread[i + 1].title;
+//             let imagePath = imagesBread[i + 1].path;
+//             let imageAltText = imagesBread[i + 1].alt;
+//             let imageID = imagesBread[i + 1].id
+
+//             dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+//         }
+
+//     }
+
+
+// }
