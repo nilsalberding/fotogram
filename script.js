@@ -1,73 +1,78 @@
 const imagesBread = [
     {
-        name: "Brot 1",
+        name: "Körnerbrot",
         path: "./img/bread1.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Körnerbrot, von oben Fotografiert, in Scheiben geschnitten."
     },
         {
-        name: "Brot 2",
+        name: "Croissant",
         path: "./img/bread2.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Croissant, von oben fotografiert."
     },
         {
-        name: "Brot 3",
+        name: "Baguette",
         path: "./img/bread3.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Mehrere Baguettes, von der Seite fotografiert."
     },
         {
-        name: "Brot 4",
+        name: "Schrippen",
         path: "./img/bread4.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Mehrere helle Sonntagsbrötchen."
     },
         {
-        name: "Brot 5",
+        name: "Einfaches Weizenbrot",
         path: "./img/bread5.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Ein Weizenbrot, in der Mitte aufgeschnitten."
     },
         {
-        name: "Brot 6",
+        name: "Helle Steinofenbrötchen",
         path: "./img/bread6.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Helle Steinofenbrötchen."
     },
         {
-        name: "Brot 7",
+        name: "Hefezopf mit Aufstrich",
         path: "./img/bread7.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Ein Hefezopf, aufgeschnitten, mit Marmelade und Beeren garniert"
     },
         {
-        name: "Brot 8",
+        name: "Saftiges Sauerteigbrot",
         path: "./img/bread8.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Ein herrliches Sauerteigbrot, unglaublich schmackhaft, geschnitten und von vorne fotografiert."
     },
         {
-        name: "Brot 9",
+        name: "Brotmischung",
         path: "./img/bread9.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Verschiedene Brotkreationen, von oben fotografiert."
     },
         {
-        name: "Brot 10",
+        name: "Landbrote",
         path: "./img/bread10.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Viele Landbrote nebeneinander angeordnet, von der Seite fotografiert."
     },
         {
-        name: "Brot 11",
+        name: "Körnerbaguette",
         path: "./img/bread11.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Mehrere Körnerbaguettes im Brotkorb, von oben fotografiert."
     },
         {
-        name: "Brot 12",
+        name: "Hefezopf ganz",
         path: "./img/bread12.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Ein ganzer Hefezopf von oben fotografiert. Daneben sind ein Messer und ein Teelöffel angeordnet."
     },
         {
-        name: "Brot 13",
+        name: "Sauerteig",
         path: "./img/bread13.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Sauerteig im Glas, von oben fotografiert"
     },
         {
-        name: "Brot 14",
+        name: "Einfaches Weizenbrot",
         path: "./img/bread14.jpg",
-        alt: "Ein herrliches Brot"
+        alt: "Einfaches Weizenbrot auf einem Backofenrost"
+    },
+        {
+        name: "Helles Brötchen",
+        path: "./img/bread15.jpg",
+        alt: "Ein helles Brötchen mit Sesam garniert."
     }
 ]
 
@@ -84,12 +89,6 @@ function renderImages(){
         imagesContainer.innerHTML += addPictures(imagePath, imageAltText);
 
     }
-}
-
-function addPictures(src, alt) {
-    return `
-    <img src="${src}" alt="${alt}">
-    `
-}
+};
 
 renderImages();
