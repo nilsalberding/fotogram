@@ -7,73 +7,96 @@
     position: relative;
 }
 
-html{
+/* #region global */
+
+html {
     font-size: 10px;
 }
 
-body{
+body {
     font-size: 16px;
 }
 
 
-.content{
+.content {
     width: 100%;
     max-width: 1920px;
     font-family: 'Winky Sans';
 }
 
-header{
-    height: 10dvh;
-    background-color: #082029;        
-    display: flex;
-        align-items: center;
-    .content{
-        display: flex;
-        justify-content: center;
-        padding: 0 80px;
+/* #endregion */
 
+header {
+    height: 10dvh;
+    background-color: #082029;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+        padding: 0 80px;
     }
-    img{
+
+    img {
         height: clamp(3rem, 4dvw, 5rem);
     }
 }
 
-main{
-    height: 80dvh;
+main {
+    min-height: 80dvh;
     color: whitesmoke;
     font-weight: bold;
     background-color: #05171E;
     display: flex;
     justify-content: center;
-    align-items: center;
-    .content{
+    
+
+    .content {
         display: flex;
         flex-direction: column;
-        justify-content: space-evenly;
+        justify-content: space-around;
         align-items: center;
-        h1{
+        padding: 80px 0;
+
+        h1 {
             font-size: clamp(2.2rem, 2.5dvw, 5rem);
         }
-        img{
-            height: clamp(10rem, 15dvw, 25rem);
-            width: clamp(10rem, 15dvw, 25rem);
-            object-fit: cover;
-            object-position: center;
-            border-radius: 8px;
+
+        #container-images {
+            
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+
+            img {
+                height: clamp(15rem, 10dvw, 25rem);
+                width: clamp(15rem, 10dvw, 25rem);
+                object-fit: cover;
+                object-position: center;
+                border-radius: 8px;
+                margin: 16px;
+            }
         }
     }
-    
+
 }
 
-footer{
+footer {
     height: 10dvh;
     background-color: #082029;
     color: #46849b;
     display: flex;
     justify-content: center;
-    .content{
+
+    .content {
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-around;
         align-items: center;
+
+        img{
+            height: 50px;
+        }
     }
 }
