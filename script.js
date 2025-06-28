@@ -94,6 +94,19 @@ const imagesBread = [
 
 const imagesContainer = document.getElementById("container-images")
 
+// function objectVars(index) {
+
+//         const imageTitle = imagesBread[index].title;
+//         const imagePath = imagesBread[index].path;
+//         const imageAltText = imagesBread[index].alt;
+//         const imageID = imagesBread[index].id
+
+//         return imageTitle, imagePath, imageAltText, imageID
+        
+// };
+
+
+
 function renderImages() {
 
     for (i = 0; i < imagesBread.length; i++) {
@@ -125,27 +138,78 @@ function closeDialog() {
     dialogRef.classList.toggle('d-none');
 }
 
-// function imgForward() {
-
-//     const dialogWindowRef = document.getElementById('dialog-window');
-
-
-
-//     for (i = 0; i < imagesBread.length; i++) {
-
-//         const currentID = document.getElementById("image-id").innerHTML
-
-//         if (i == currentID - 1) {
-
-//             let imageTitle = imagesBread[i + 1].title;
-//             let imagePath = imagesBread[i + 1].path;
-//             let imageAltText = imagesBread[i + 1].alt;
-//             let imageID = imagesBread[i + 1].id
-
-//             dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
-//         }
-
-//     }
-
-
+// function setNewValues(){
+//     document-getElementById('')
 // }
+
+function imgForward() {
+
+    const dialogWindowRef = document.getElementById('dialog-window');
+
+
+
+    for (i = 0; i < imagesBread.length; i++) {
+
+        const currentID = document.getElementById("image-id").innerHTML
+
+        if (i == imagesBread.length - 1) {
+
+            const imageTitle = imagesBread[0].title;
+            const imagePath = imagesBread[0].path;
+            const imageAltText = imagesBread[0].alt;
+            const imageID = imagesBread[0].id
+
+            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+
+            break;
+        }
+
+        if (i == currentID - 1) {
+
+            const imageTitle = imagesBread[i + 1].title;
+            const imagePath = imagesBread[i + 1].path;
+            const imageAltText = imagesBread[i + 1].alt;
+            const imageID = imagesBread[i + 1].id
+
+            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+
+            break;
+        }
+
+
+    }
+}
+
+function imgBackward() {
+
+    const dialogWindowRef = document.getElementById('dialog-window');
+
+    for (i = 0; i < imagesBread.length; i++) {
+
+        const currentID = document.getElementById("image-id").innerHTML
+
+        if (i == currentID - 1 && i == 0) {
+
+            const imageTitle = imagesBread[imagesBread.length - 1].title;
+            const imagePath = imagesBread[imagesBread.length - 1].path;
+            const imageAltText = imagesBread[imagesBread.length - 1].alt;
+            const imageID = imagesBread[imagesBread.length - 1].id
+
+            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+
+            break;
+        }
+
+        if (i == currentID - 1) {
+
+            const imageTitle = imagesBread[i - 1].title;
+            const imagePath = imagesBread[i - 1].path;
+            const imageAltText = imagesBread[i - 1].alt;
+            const imageID = imagesBread[i - 1].id
+
+            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+
+            break;
+        }
+    }
+}

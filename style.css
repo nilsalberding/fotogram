@@ -25,7 +25,7 @@ body {
 
 }
 
-.d-flex{
+.d-flex {
     display: flex;
 }
 
@@ -33,7 +33,7 @@ body {
     display: none;
 }
 
-button:hover{
+button:hover {
     cursor: pointer;
 }
 
@@ -89,6 +89,7 @@ main {
             align-items: center;
 
             img {
+
                 height: clamp(15rem, 10dvw, 25rem);
                 width: clamp(15rem, 10dvw, 25rem);
                 object-fit: cover;
@@ -128,8 +129,6 @@ footer {
         }
     }
 }
-
-/* #region dialog */
 
 #dialog {
     position: absolute;
@@ -179,6 +178,18 @@ footer {
             display: flex;
             justify-content: space-evenly;
             align-items: center;
+            #button-forward{
+                background-image: url(./img/right-arrow.png);
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+            }
+                #button-backward{
+                background-image: url(./img/left-arrow.png);
+                background-size: cover;
+                width: 20px;
+                height: 20px;
+            }
         }
     }
 }
