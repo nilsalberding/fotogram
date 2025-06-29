@@ -9,7 +9,7 @@ function addDialog(imgSrc, imgTitle, imgID) {
 
     <div id="dialog-window">
         <div>
-            <h2>${imgTitle}</h2>
+            <h2 id="image-title">${imgTitle}</h2>
             <button onclick='closeDialog()'>X</button>
         </div>
         <img id="dialog-img" src="${imgSrc}">
@@ -21,20 +21,4 @@ function addDialog(imgSrc, imgTitle, imgID) {
     </div>
         
     `;
-}
-
-function addNewDialog(imgSrc, imgAlt, imgTitle, imgID) {
-    return ` 
-            <div>
-                <h2>${imgTitle}</h2>
-                <button onclick='closeDialog()'>X</button>
-            </div>
-            <img id="dialog-img" src="${imgSrc}" alt="${imgAlt}">
-            <div id="select-container">
-                <button id="button-backward" onclick='imgBackward()'></button>
-                <span id="image-id">${imgID}</span>
-                <button id="button-forward" onclick='imgForward()'></button>
-            </div>
-            `
-
 }

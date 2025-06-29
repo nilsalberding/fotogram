@@ -102,7 +102,7 @@ const imagesContainer = document.getElementById("container-images")
 //         const imageID = imagesBread[index].id
 
 //         return imageTitle, imagePath, imageAltText, imageID
-        
+
 // };
 
 
@@ -138,15 +138,19 @@ function closeDialog() {
     dialogRef.classList.toggle('d-none');
 }
 
-// function setNewValues(){
-//     document-getElementById('')
-// }
+function setNewValues(imgTitle, imgPath, imgAlt, imgID) {
+
+    const title = document.getElementById('image-title');
+    const img = document.getElementById('dialog-img')
+    const id = document.getElementById('image-id');
+
+    title.innerHTML = imgTitle;
+    img.src = imgPath;
+    img.alt = imgAlt;
+    id.innerHTML = imgID;
+}
 
 function imgForward() {
-
-    const dialogWindowRef = document.getElementById('dialog-window');
-
-
 
     for (i = 0; i < imagesBread.length; i++) {
 
@@ -157,9 +161,9 @@ function imgForward() {
             const imageTitle = imagesBread[0].title;
             const imagePath = imagesBread[0].path;
             const imageAltText = imagesBread[0].alt;
-            const imageID = imagesBread[0].id
+            const imageID = imagesBread[0].id;
 
-            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+            setNewValues(imageTitle, imagePath, imageAltText, imageID);
 
             break;
         }
@@ -169,20 +173,16 @@ function imgForward() {
             const imageTitle = imagesBread[i + 1].title;
             const imagePath = imagesBread[i + 1].path;
             const imageAltText = imagesBread[i + 1].alt;
-            const imageID = imagesBread[i + 1].id
+            const imageID = imagesBread[i + 1].id;
 
-            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+            setNewValues(imageTitle, imagePath, imageAltText, imageID);
 
             break;
         }
-
-
     }
 }
 
 function imgBackward() {
-
-    const dialogWindowRef = document.getElementById('dialog-window');
 
     for (i = 0; i < imagesBread.length; i++) {
 
@@ -193,9 +193,9 @@ function imgBackward() {
             const imageTitle = imagesBread[imagesBread.length - 1].title;
             const imagePath = imagesBread[imagesBread.length - 1].path;
             const imageAltText = imagesBread[imagesBread.length - 1].alt;
-            const imageID = imagesBread[imagesBread.length - 1].id
+            const imageID = imagesBread[imagesBread.length - 1].id;
 
-            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+            setNewValues(imageTitle, imagePath, imageAltText, imageID);
 
             break;
         }
@@ -207,7 +207,7 @@ function imgBackward() {
             const imageAltText = imagesBread[i - 1].alt;
             const imageID = imagesBread[i - 1].id
 
-            dialogWindowRef.innerHTML = addNewDialog(imagePath, imageAltText, imageTitle, imageID);
+            setNewValues(imageTitle, imagePath, imageAltText, imageID);
 
             break;
         }
