@@ -94,42 +94,38 @@ const imagesBread = [
 
 const imagesContainer = document.getElementById("container-images")
 
-// function objectVars(index) {
-
-//         const imageTitle = imagesBread[index].title;
-//         const imagePath = imagesBread[index].path;
-//         const imageAltText = imagesBread[index].alt;
-//         const imageID = imagesBread[index].id
-
-//         return imageTitle, imagePath, imageAltText, imageID
-
-// };
-
-
-
 function renderImages() {
 
     for (i = 0; i < imagesBread.length; i++) {
 
-        const imageTitle = imagesBread[i].title;
-        const imagePath = imagesBread[i].path;
-        const imageAltText = imagesBread[i].alt;
-        const imageID = imagesBread[i].id
-
-        imagesContainer.innerHTML += addPictures(imagePath, imageAltText, imageTitle, imageID);
+        imagesContainer.innerHTML += addPictures(imagesBread[i]);
 
     }
 };
 
 renderImages();
 
-function activateDialog(imgSrc, imgTitle, imgID) {
+function setBtns(i){
+    const forward = document.getElementById('button-forward');
+    const backward = document.getElementById('button-backward');
+
+    forward.replaceWith(forward.cloneNode(true));
+    backward.replaceWith(backward.cloneNode(true));
+
+    document.getElementById('button-forward').addEventListener("click", () => imgForward(i));
+    document.getElementById('button-backward').addEventListener("click", () => imgBackward(i));
+}
+
+function activateDialog(imgSrc, imgAlt, imgTitle, imgID) {
 
     const dialogRef = document.getElementById('dialog');
+    const maxImg = imagesBread.length;
 
     dialogRef.classList.toggle('d-none');
 
-    dialogRef.innerHTML = addDialog(imgSrc, imgTitle, imgID);
+    dialogRef.innerHTML = addDialog(imgSrc, imgAlt, imgTitle, imgID, maxImg);
+
+    setBtns(imgID);
 }
 
 function closeDialog() {
@@ -143,71 +139,57 @@ function setNewValues(imgTitle, imgPath, imgAlt, imgID) {
     const title = document.getElementById('image-title');
     const img = document.getElementById('dialog-img')
     const id = document.getElementById('image-id');
+    const maxImg = imagesBread.length;
 
     title.innerHTML = imgTitle;
     img.src = imgPath;
     img.alt = imgAlt;
-    id.innerHTML = imgID;
+    id.innerHTML = imgID + "/" + maxImg;
 }
 
-function imgForward() {
+function newValues(index) {
+
+    const imageTitle = imagesBread[index].title;
+    const imagePath = imagesBread[index].path;
+    const imageAltText = imagesBread[index].alt;
+    const imageID = imagesBread[index].id;
+
+    setNewValues(imageTitle, imagePath, imageAltText, imageID);
+    setBtns(imageID);
+}
+
+function imgForward(currentID) {
 
     for (i = 0; i < imagesBread.length; i++) {
 
-        const currentID = document.getElementById("image-id").innerHTML
-
         if (i == imagesBread.length - 1) {
 
-            const imageTitle = imagesBread[0].title;
-            const imagePath = imagesBread[0].path;
-            const imageAltText = imagesBread[0].alt;
-            const imageID = imagesBread[0].id;
-
-            setNewValues(imageTitle, imagePath, imageAltText, imageID);
+            newValues(0);
 
             break;
         }
-
         if (i == currentID - 1) {
 
-            const imageTitle = imagesBread[i + 1].title;
-            const imagePath = imagesBread[i + 1].path;
-            const imageAltText = imagesBread[i + 1].alt;
-            const imageID = imagesBread[i + 1].id;
-
-            setNewValues(imageTitle, imagePath, imageAltText, imageID);
+            newValues(i + 1);
 
             break;
         }
     }
 }
 
-function imgBackward() {
+function imgBackward(currentID) {
 
     for (i = 0; i < imagesBread.length; i++) {
 
-        const currentID = document.getElementById("image-id").innerHTML
-
         if (i == currentID - 1 && i == 0) {
 
-            const imageTitle = imagesBread[imagesBread.length - 1].title;
-            const imagePath = imagesBread[imagesBread.length - 1].path;
-            const imageAltText = imagesBread[imagesBread.length - 1].alt;
-            const imageID = imagesBread[imagesBread.length - 1].id;
-
-            setNewValues(imageTitle, imagePath, imageAltText, imageID);
+            newValues(imagesBread.length - 1);
 
             break;
         }
-
         if (i == currentID - 1) {
 
-            const imageTitle = imagesBread[i - 1].title;
-            const imagePath = imagesBread[i - 1].path;
-            const imageAltText = imagesBread[i - 1].alt;
-            const imageID = imagesBread[i - 1].id
-
-            setNewValues(imageTitle, imagePath, imageAltText, imageID);
+            newValues(i - 1);
 
             break;
         }
