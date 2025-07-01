@@ -8,16 +8,12 @@ function addDialog(imgSrc, imgAlt, imgTitle, imgID, maxImg) {
     return `
 
     <div id="dialog-window">
-        <div>
-            <h2 id="image-title">${imgTitle}</h2>
-            <button onclick='closeDialog()'>X</button>
-        </div>
+        <h2 id="image-title">${imgTitle}</h2>
+        <button id="button-close" onclick='closeDialog(event)'>X</button>
         <img id="dialog-img" src="${imgSrc}" alt="${imgAlt}">
-        <div id="select-container">
-            <button id="button-backward"></button>
-            <span id="image-id">${imgID}/${maxImg}</span>
-            <button id="button-forward"></button>
-        </div>
+        <button id="button-backward"></button>
+        <span id="image-id">${imgID}/${maxImg}</span>
+        <button id="button-forward"></button>
     </div>
         
     `;

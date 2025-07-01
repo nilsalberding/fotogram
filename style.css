@@ -22,7 +22,6 @@ body {
 .content {
     width: 100%;
     max-width: 1920px;
-
 }
 
 .d-flex {
@@ -31,6 +30,11 @@ body {
 
 .d-none {
     display: none;
+}
+
+button {
+    background-color: transparent;
+    border: none;
 }
 
 button:hover {
@@ -48,8 +52,8 @@ header {
 
     .content {
         padding: 0 80px;
-        
-        @media(max-width: 700px){
+
+        @media(max-width: 700px) {
             padding: 0;
             display: flex;
             align-items: center;
@@ -141,13 +145,16 @@ footer {
     position: absolute;
     top: 0;
     left: 0;
-    height: 100dvh;
+    height: 100%;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.308);
     justify-content: center;
     align-items: center;
 
     #dialog-window {
+        z-index: 2;
+        position: fixed;
+        top: 12.5%;
         height: 75dvh;
         width: 70dvw;
 
@@ -172,53 +179,59 @@ footer {
         justify-content: space-between;
         align-items: center;
 
+        h2 {
+            position: absolute;
+            top: 5%;
+            left: 10%;
+            font-size: clamp(2rem, 2.5dvw, 4rem);
+            left: 15%
+        }
 
-        div {
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 40px 0;
-
-            h2 {
-                font-size: clamp(2rem, 3.2dvw, 5rem);
-            }
-
-            button {
-                background-color: transparent;
-                border: none;
-                color: white;
-                font-family: 'Winky Sans';
-                font-size: 20px;
-            }
+        #button-close {
+            position: absolute;
+            top: 5%;
+            right: 10%;
+            background-color: transparent;
+            border: none;
+            color: white;
+            font-family: 'Winky Sans';
+            font-size: clamp(2rem, 2.5dvw, 4rem);
         }
 
         img {
+            position: absolute;
+            top: 15%;
             height: 70%;
             width: 80%;
-
             object-fit: cover;
         }
 
-        #select-container {
-            width: 100%;
-            display: flex;
-            justify-content: space-evenly;
-            align-items: center;
+        #button-forward {
+            position: absolute;
+            bottom: 7%;
+            right: 10%;
+            background-image: url(./img/right-arrow.png);
+            background-size: cover;
+            width: clamp(2rem, 1dvw, 4rem);
+            height: clamp(2rem, 1dvw, 4rem);
 
-            #button-forward {
-                background-image: url(./img/right-arrow.png);
-                background-size: cover;
-                width: 20px;
-                height: 20px;
-            }
-
-            #button-backward {
-                background-image: url(./img/left-arrow.png);
-                background-size: cover;
-                width: 20px;
-                height: 20px;
-            }
         }
+
+        #image-id {
+            position: absolute;
+            bottom: 7%;
+            font-size: clamp(2rem, 1dvw, 4rem);
+        }
+
+        #button-backward {
+            position: absolute;
+            bottom: 7%;
+            left: 10%;
+            background-image: url(./img/left-arrow.png);
+            background-size: cover;
+            width: clamp(2rem, 1dvw, 4rem);;
+            height: clamp(2rem, 1dvw, 4rem);
+        }
+
     }
 }

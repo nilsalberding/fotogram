@@ -105,7 +105,7 @@ function renderImages() {
 
 renderImages();
 
-function setBtns(i){
+function setBtns(i) {
     const forward = document.getElementById('button-forward');
     const backward = document.getElementById('button-backward');
 
@@ -160,38 +160,27 @@ function newValues(index) {
 
 function imgForward(currentID) {
 
-    for (i = 0; i < imagesBread.length; i++) {
+    currentID = Number(currentID);
 
-        if (i == imagesBread.length - 1) {
-
-            newValues(0);
-
-            break;
-        }
-        if (i == currentID - 1) {
-
-            newValues(i + 1);
-
-            break;
-        }
+    if (currentID == imagesBread.length) {
+        newValues(0);
+    } else {
+        newValues(currentID);
     }
 }
+
 
 function imgBackward(currentID) {
 
-    for (i = 0; i < imagesBread.length; i++) {
+    currentID = Number(currentID);
 
-        if (i == currentID - 1 && i == 0) {
+        if (currentID == 1) {
 
             newValues(imagesBread.length - 1);
+            
+        } else{
 
-            break;
-        }
-        if (i == currentID - 1) {
-
-            newValues(i - 1);
-
-            break;
+            newValues(currentID - 2);
         }
     }
-}
+
